@@ -32,10 +32,15 @@ EOF
 	cp bowtie-1.2.2-linux-x86_64/bowtie /usr/local/bin
 
 	echo "Installing samtools and samblaster"
+	wget https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2 -O htslib.tar.bz2 # Dependencie of samtools
+	tar xjvf htslib.tar.bz2
+	cd htslib-1.9 
+	make
+	make install
+	cd ..
 	wget https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2
 	tar xvjf samtools-1.9.tar.bz2
 	cd samtools-1.9
-	./configure
 	make
 	make install
 	cp samtools usr/local/bin
