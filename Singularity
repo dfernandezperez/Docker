@@ -14,9 +14,8 @@ EOF
 
 	echo "Installing pip and basic dependencies"
 	apt-get update
-	apt-get install -y curl wget libboost-all-dev
-	apt-get install python-pip
-
+	apt-get install -y curl wget libboost-all-dev libgit2-dev python-pip
+	
 	# R packages and bioconductor
 	R --slave -e "source('https://bioconductor.org/biocLite.R'); \
                       biocLite('ChIPseeker')"
