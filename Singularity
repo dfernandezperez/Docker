@@ -94,7 +94,5 @@ EOF
 	make
 	cp wiggletools /usr/local/bin
 
-   	yum clean all
-
 %apprun bowtie
 %apprun samblaster
