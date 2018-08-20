@@ -29,7 +29,7 @@ EOF
 	echo "Installing bowtie"
 	wget https://sourceforge.net/projects/bowtie-bio/files/bowtie/1.2.2/bowtie-1.2.2-linux-x86_64.zip/download
 	unzip download
-	cp bowtie /usr/local/bin
+	cp download/bowtie /usr/local/bin
 
 	echo "Installing samtools and samblaster"
 	wget https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2
