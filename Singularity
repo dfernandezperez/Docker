@@ -18,7 +18,7 @@ EOF
 
 	echo "Installing pip and basic dependencies"
 	apt-get update
-	apt-get install -y curl wget libboost-all-dev epel-release
+	apt-get install -y curl wget libboost-all-dev
 	apt-get install python-pip python-devel
 
 	# R packages and bioconductor
