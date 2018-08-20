@@ -5,10 +5,6 @@ From: bioconductor/release_core2
 
    #"I can put here whatever I want to happen by default when the user runs the container"
    cat << EOF
-This container includes the following apps:
-STAR version 2.5.2b - https://github.com/alexdobin/STAR
-HTSeq version 0.6.1p1 - http://www-huber.embl.de/HTSeq/
-Pysam version 0.9.0 - https://github.com/pysam-developers/pysam
 To execute a binary inside the container do "singularity exec /path/to/container.img binary-name"
 EOF
 
@@ -19,7 +15,7 @@ EOF
 	echo "Installing pip and basic dependencies"
 	apt-get update
 	apt-get install -y curl wget libboost-all-dev
-	apt-get install python-pip python-devel
+	apt-get install python-pip
 
 	# R packages and bioconductor
 	R --slave -e "source('https://bioconductor.org/biocLite.R'); \
