@@ -18,12 +18,6 @@ EOF
 
 
 	echo "Installing samtools and samblaster"
-	#wget https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2 -O htslib.tar.bz2 # Dependencie of samtools
-	#tar xjvf htslib.tar.bz2
-	#cd htslib-1.9 
-	#make
-	#make install
-	#cd ..
 	wget https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2
 	tar xvjf samtools-1.9.tar.bz2
 	cd samtools-1.9
@@ -35,7 +29,7 @@ EOF
 	git clone git://github.com/GregoryFaust/samblaster.git
 	cd samblaster
 	make
-	cp samblaster /usr/local/bin/
+	#cp samblaster /usr/local/bin/
 	cd ..
 	
 	
@@ -52,7 +46,7 @@ EOF
 	echo "Installing bowtie"
 	wget https://sourceforge.net/projects/bowtie-bio/files/bowtie/1.2.2/bowtie-1.2.2-linux-x86_64.zip
 	unzip bowtie-1.2.2-linux-x86_64.zip
-	cp bowtie-1.2.2-linux-x86_64/bowtie /usr/local/bin
+	#cp bowtie-1.2.2-linux-x86_64/bowtie /usr/local/bin
 
 	echo "Installing fastp for processing fastq files"
 	wget http://opengene.org/fastp/fastp
@@ -62,7 +56,7 @@ EOF
 	echo "Installing fastqc"
 	wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.7.zip
 	unzip fastqc_v0.11.7.zip
-	chmod a+x fastqc_v0.11.7/fastqc ; cp fastqc_v0.11.7/fastqc /usr/local/bin
+	#chmod a+x fastqc_v0.11.7/fastqc ; cp fastqc_v0.11.7/fastqc /usr/local/bin
 
 	echo "Installing MACS2"
 	pip install MACS2==2.1.1.20160309
