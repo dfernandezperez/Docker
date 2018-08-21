@@ -30,7 +30,7 @@ EOF
 	./configure
 	make
 	make install
-	cp samtools usr/local/bin
+	#cp samtools usr/local/bin
 	cd ..
 	git clone git://github.com/GregoryFaust/samblaster.git
 	cd samblaster
