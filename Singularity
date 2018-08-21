@@ -15,9 +15,9 @@ EOF
 
 	echo "Here we are installing software and other dependencies for the container!"
 
-	echo "Installing pip and basic dependencies"
+	echo "Installing basic dependencies"
 	apt-get update
-	apt-get install -y curl wget libboost-all-dev python-pip libudunits2-dev
+	apt-get install -y curl wget libboost-all-dev libudunits2-dev
 	
 	# Install miniconda
 	wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
@@ -26,7 +26,7 @@ EOF
 	/opt/miniconda2/bin/conda config --add channels conda-forge
 	/opt/miniconda2/bin/conda config --add channels bioconda
 	
-	# Install samtools and samblaster
+	# Install software required for chipseq pipeline with bioconda
 	/opt/miniconda2/bin/conda install -c bioconda samtools=1.9 bowtie=1.2.2 fastqc=0.11.7 macs2=2.1.1.20160309 \
 	deeptools=3.1.1 multiqc=1.6a0 samblaster=0.1.24 wiggletools=1.2.2
 	
