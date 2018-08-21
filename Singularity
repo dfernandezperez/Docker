@@ -24,11 +24,10 @@ EOF
 	#make
 	#make install
 	#cd ..
-	autoheader
-    	autoconf -Wno-syntax
 	wget https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2
 	tar xvjf samtools-1.9.tar.bz2
 	cd samtools-1.9
+	./configure
 	make
 	make install
 	cp samtools usr/local/bin
