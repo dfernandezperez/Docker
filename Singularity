@@ -15,6 +15,30 @@ EOF
 	echo "Installing pip and basic dependencies"
 	apt-get update
 	apt-get install -y curl wget libboost-all-dev python-pip libudunits2-dev libncurses5-dev liblzma-dev zlib1g-dev libbz2-dev
+
+
+	echo "Installing samtools and samblaster"
+	#wget https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2 -O htslib.tar.bz2 # Dependencie of samtools
+	#tar xjvf htslib.tar.bz2
+	#cd htslib-1.9 
+	#make
+	#make install
+	#cd ..
+	autoheader
+    	autoconf -Wno-syntax
+	wget https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2
+	tar xvjf samtools-1.9.tar.bz2
+	cd samtools-1.9
+	make
+	make install
+	cp samtools usr/local/bin
+	cd ..
+	git clone git://github.com/GregoryFaust/samblaster.git
+	cd samblaster
+	make
+	cp samblaster /usr/local/bin/
+	cd ..
+	
 	
 	# R packages and bioconductor
 	R --slave -e "source('https://bioconductor.org/biocLite.R'); \
@@ -30,26 +54,6 @@ EOF
 	wget https://sourceforge.net/projects/bowtie-bio/files/bowtie/1.2.2/bowtie-1.2.2-linux-x86_64.zip
 	unzip bowtie-1.2.2-linux-x86_64.zip
 	cp bowtie-1.2.2-linux-x86_64/bowtie /usr/local/bin
-
-	echo "Installing samtools and samblaster"
-	wget https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2 -O htslib.tar.bz2 # Dependencie of samtools
-	tar xjvf htslib.tar.bz2
-	cd htslib-1.9 
-	make
-	make install
-	cd ..
-	wget https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2
-	tar xvjf samtools-1.9.tar.bz2
-	cd samtools-1.9
-	make
-	make install
-	cp samtools usr/local/bin
-	cd ..
-	git clone git://github.com/GregoryFaust/samblaster.git
-	cd samblaster
-	make
-	cp samblaster /usr/local/bin/
-	cd ..
 
 	echo "Installing fastp for processing fastq files"
 	wget http://opengene.org/fastp/fastp
