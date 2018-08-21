@@ -2,7 +2,7 @@ Bootstrap: docker
 From: bioconductor/release_core2
 
 %environment
-export PATH="/opt/anaconda2/bin:$PATH"
+export PATH="/opt/miniconda2/bin:$PATH"
 
 %runscript
 
@@ -22,6 +22,9 @@ EOF
 	# Install miniconda
 	wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
 	bash Miniconda2-latest-Linux-x86_64.sh -b -p /opt/miniconda2
+	/opt/miniconda2/bin/conda config --add channels defaults
+	/opt/miniconda2/bin/conda config --add channels conda-forge
+	/opt/miniconda2/bin/conda config --add channels bioconda
 	
 	# Install samtools and samblaster
 	/opt/miniconda2/bin/conda install -c bioconda samtools=1.9 bowtie=1.2.2 fastqc=0.11.7 macs2=2.1.1.20160309 \
