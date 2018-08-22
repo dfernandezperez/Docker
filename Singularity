@@ -2,7 +2,7 @@ Bootstrap: docker
 From: bioconductor/release_core2
 
 %environment
-export PATH="/opt/miniconda2/bin:$PATH"
+export PATH="$PATH:/opt/miniconda2/bin"
 
 %runscript
 
@@ -40,6 +40,4 @@ EOF
                       biocLite('ChIPseeker')"
  	R --slave -e "source('https://bioconductor.org/biocLite.R'); \
                       biocLite('TxDb.Mmusculus.UCSC.mm9.knownGene')"                     
-	R --slave -e 'install.packages(c("ggplot2", "data.table", "RColorBrewer", "devtools", "snow"), repos="https://cloud.r-project.org/")'
-	R --slave -e "library(devtools); \
-	                  devtools::install_github('hms-dbmi/spp', build_vignettes = FALSE)"
+	R --slave -e 'install.packages(c("ggplot2", "data.table", "RColorBrewer", "devtools", "spp"), repos="https://cloud.r-project.org/")'
