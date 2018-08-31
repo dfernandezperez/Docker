@@ -35,6 +35,10 @@ EOF
 	chmod a+x ./fastp
 	mv ./fastp /usr/local/bin
 	
+	# Install bedgraph to bigwig from ucsc
+	wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/bedGraphToBigWig
+	chmod a+x ./bedGraphToBigWig
+	mv ./bedGraphToBigWig /usr/local/bin
 	# R packages and bioconductor
 	R --slave -e "source('https://bioconductor.org/biocLite.R'); \
                       biocLite(c('ChIPseeker', 'org.Mm.eg.db', 'TxDb.Mmusculus.UCSC.mm9.knownGene'))"                  
