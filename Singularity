@@ -37,7 +37,5 @@ EOF
 	
 	# R packages and bioconductor
 	R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-                      biocLite('ChIPseeker')"
- 	R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-                      biocLite('TxDb.Mmusculus.UCSC.mm9.knownGene')"                     
+                      biocLite(c('ChIPseeker', 'org.Mm.eg.db', 'TxDb.Mmusculus.UCSC.mm9.knownGene'))"                  
 	R --slave -e 'install.packages(c("ggplot2", "data.table", "RColorBrewer", "devtools", "spp"), repos="https://cloud.r-project.org/")'
