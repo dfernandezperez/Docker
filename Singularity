@@ -28,7 +28,7 @@ EOF
 	
 	# Install software required for chipseq pipeline with bioconda
 	/opt/miniconda2/bin/conda install -c bioconda samtools=1.9 bowtie=1.2.2 fastqc=0.11.7 macs2=2.1.1.20160309 \
-	deeptools=3.1.1 multiqc=1.6a0 samblaster=0.1.24 wiggletools=1.2.2 pysam=0.15.0.1
+	deeptools=3.1.1 multiqc=1.6a0 samblaster=0.1.24 wiggletools=1.2.2 pysam=0.15.0.1 bedops=2.4.35
 	
 	# Install fastp manually because bioconda verison is not the latest
 	wget http://opengene.org/fastp/fastp
