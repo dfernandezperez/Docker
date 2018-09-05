@@ -2,7 +2,7 @@ Bootstrap: docker
 From: bioconductor/release_core2
 
 %environment
-export PATH="/opt/miniconda2/bin:$PATH"
+export PATH="/usr/local/bin/Rscript:/usr/local/bin/R:/opt/miniconda2/bin:$PATH"
 
 %post
 
@@ -38,5 +38,5 @@ export PATH="/opt/miniconda2/bin:$PATH"
                       biocLite(c('ChIPseeker', 'org.Mm.eg.db', 'TxDb.Mmusculus.UCSC.mm9.knownGene'))"                  
 	R --slave -e 'install.packages(c("ggplot2", "data.table", "RColorBrewer", "devtools", "spp"), repos="https://cloud.r-project.org/")'
   
-  # Add miniconda bin to R path (spp will use samtools, so it needs acess to the binaries)
-  sed -i 's/PATH=/PATH=\/opt\/miniconda2\/bin:/g' Renviron
+	# Add miniconda bin to R path (spp will use samtools, so it needs acess to the binaries)
+	sed -i 's/PATH=/PATH=\/opt\/miniconda2\/bin:/g' Renviron
