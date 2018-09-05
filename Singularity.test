@@ -37,6 +37,3 @@ export PATH="/opt/miniconda2/bin:$PATH"
 	R --slave -e "source('https://bioconductor.org/biocLite.R'); \
                       biocLite(c('ChIPseeker', 'org.Mm.eg.db', 'TxDb.Mmusculus.UCSC.mm9.knownGene'))"                  
 	R --slave -e 'install.packages(c("ggplot2", "data.table", "RColorBrewer", "devtools", "spp"), repos="https://cloud.r-project.org/")'
-  
-	# Add miniconda bin to R path (spp will use samtools, so it needs acess to the binaries)
-	sed -i 's/PATH=/PATH=\/opt\/miniconda2\/bin:/g' /usr/local/lib/R/etc/Renviron
