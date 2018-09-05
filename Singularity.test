@@ -2,7 +2,7 @@ Bootstrap: docker
 From: bioconductor/release_core2
 
 %environment
-export PATH="/usr/local/bin/Rscript:/usr/local/bin/R:/opt/miniconda2/bin:$PATH"
+export PATH="/usr/local/bin:/opt/miniconda2/bin:$PATH"
 
 %post
 
