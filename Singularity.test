@@ -10,7 +10,7 @@ export PATH="/opt/miniconda2/bin:$PATH"
 
 	echo "Installing basic dependencies"
 	apt-get update
-	apt-get install -y curl wget libboost-all-dev libudunits2-dev
+	apt-get install -y curl wget libboost-all-dev libudunits2-dev gawk
 	
 	# Install miniconda
 	wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
