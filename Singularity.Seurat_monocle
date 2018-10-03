@@ -32,6 +32,7 @@ apt-get install -y libssl-dev libxml2-dev libpcre3-dev liblzma-dev libbz2-dev li
 apt-get install -y libhdf5-dev hdf5-helpers libmariadb-client-lgpl-dev python-pip  python-virtualenv
 
 apt-get install -y r-base r-base-dev
+pip install umap-learn louvain
 R --version
 
 # installing packages from cran
@@ -47,6 +48,5 @@ R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("cummeRbun
 R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("monocle")'
 R --slave -e 'devtools::install_github("cole-trapnell-lab/DDRTree", ref="simple-ppt-like")'
 R --slave -e 'devtools::install_github("cole-trapnell-lab/L1-graph")'
-R --slave -e 'library(reticulate);py_install('umap-learn', pip = T, pip_ignore_installed = T);py_install("louvain")'
 R --slave -e 'devtools::install_github("cole-trapnell-lab/monocle-release", ref="monocle3_alpha")'
 R --slave -e 'source("http://cf.10xgenomics.com/supp/cell-exp/rkit-install-2.0.0.R")'
