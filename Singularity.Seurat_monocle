@@ -1,5 +1,6 @@
 Bootstrap: docker
-From: bioconductor/release_core2
+From: ubuntu:16.04
+IncludeCmd: yes
 
 %apprun R
 exec R "$@"
@@ -15,7 +16,10 @@ apt-get update
 apt-get install -y apt-transport-https apt-utils software-properties-common
 
 #add CRAN/Ubuntu repo, add key, then refresh
-apt-get update
+sudo add-apt-repository 'deb http://ppa.launchpad.net/ubuntugis/ubuntugis-unstable/ubuntu bionic main '
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 314DF160
+sudo apt update
+sudo apt install libgdal1-dev libproj-dev libgeos-dev libudunits2-dev libv8-dev libcairo2-dev libnetcdf-dev
 
 apt-get install -y wget nano
 apt-get install -y libblas3 libblas-dev liblapack-dev liblapack3 curl
@@ -25,8 +29,9 @@ aptitude install -y xorg-dev
 aptitude install -y libreadline-dev
 aptitude install -y gfortran
 gfortran --version
-apt-get install -y libssl-dev libpcre3-dev liblzma-dev libbz2-dev libcurl4-openssl-dev 
-apt-get install -y libhdf5-dev hdf5-helpers libmariadb-client-lgpl-dev
+apt-get install -y libssl-dev libxml2-dev libpcre3-dev liblzma-dev libbz2-dev libcurl4-openssl-dev 
+apt-get install -y libhdf5-dev hdf5-helpers libmariadb-client-lgpl-dev python-pip  python-virtualenv
+
 pip install umap-learn louvain
 
 R --version
