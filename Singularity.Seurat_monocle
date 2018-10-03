@@ -1,6 +1,5 @@
 Bootstrap: docker
-From: ubuntu:16.04
-IncludeCmd: yes
+From: bioconductor/release_core2
 
 %apprun R
 exec R "$@"
@@ -16,8 +15,6 @@ apt-get update
 apt-get install -y apt-transport-https apt-utils software-properties-common
 
 #add CRAN/Ubuntu repo, add key, then refresh
-apt-add-repository "deb https://cloud.r-project.org/bin/linux/ubuntu xenial/"
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
 apt-get update
 
 apt-get install -y wget nano
@@ -28,11 +25,10 @@ aptitude install -y xorg-dev
 aptitude install -y libreadline-dev
 aptitude install -y gfortran
 gfortran --version
-apt-get install -y libssl-dev libxml2-dev libpcre3-dev liblzma-dev libbz2-dev libcurl4-openssl-dev 
-apt-get install -y libhdf5-dev hdf5-helpers libmariadb-client-lgpl-dev python-pip  python-virtualenv
-
-apt-get install -y r-base r-base-dev
+apt-get install -y libssl-dev libpcre3-dev liblzma-dev libbz2-dev libcurl4-openssl-dev 
+apt-get install -y libhdf5-dev hdf5-helpers libmariadb-client-lgpl-dev
 pip install umap-learn louvain
+
 R --version
 
 # installing packages from cran
