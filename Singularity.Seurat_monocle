@@ -16,8 +16,7 @@ apt-get update
 apt-get install -y apt-transport-https apt-utils software-properties-common
 
 #add CRAN/Ubuntu repo, add key, then refresh
-add-apt-repository 'deb http://ppa.launchpad.net/ubuntugis/ubuntugis-unstable/ubuntu bionic main '
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 314DF160
+add-apt-repository ppa:marutter/rrutter3.5
 apt-get update
 apt-get install -y libgdal1-dev libproj-dev libgeos-dev libudunits2-dev libv8-dev libcairo2-dev libnetcdf-dev
 
