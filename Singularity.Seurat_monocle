@@ -31,8 +31,12 @@ gfortran --version
 apt-get install -y libssl-dev libxml2-dev libpcre3-dev liblzma-dev libbz2-dev libcurl4-openssl-dev 
 apt-get install -y libhdf5-dev hdf5-helpers libmariadb-client-lgpl-dev python-pip  python-virtualenv
 
-pip install umap-learn 
+
+wget https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
+pip install umap-learn
 pip install louvain
+
 
 apt-get install r-api-3.5
 #R --version
@@ -45,7 +49,7 @@ R --slave -e 'install.packages("Seurat",repos="https://cran.rstudio.com/")'
 R --slave -e 'install.packages("reticulate",repos="https://cran.rstudio.com/")'
 
 # installing from bioc
-R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("pachterlab/sleuth")'
+#R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("pachterlab/sleuth")'
 R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("cummeRbund")'
 R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("monocle")'
 R --slave -e 'devtools::install_github("cole-trapnell-lab/DDRTree", ref="simple-ppt-like")'
