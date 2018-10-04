@@ -31,7 +31,6 @@ gfortran --version
 apt-get install -y libssl-dev libxml2-dev libpcre3-dev liblzma-dev libbz2-dev libcurl4-openssl-dev 
 apt-get install -y libhdf5-dev hdf5-helpers libmariadb-client-lgpl-dev python-pip  python-virtualenv
 
-pip install --upgrade pip
 pip install umap-learn louvain
 
 apt-get install r-base r-base-core r-recommended
