@@ -1,0 +1,49 @@
+Bootstrap: docker
+From: bioconductor/release_core2
+
+%apprun R
+exec R "$@"
+
+%apprun Rscript
+exec Rscript "$@"
+
+%runscript
+exec R "$@"
+
+%post
+apt-get update
+apt-get install -y apt-transport-https apt-utils software-properties-common
+
+#add CRAN/Ubuntu repo, add key, then refresh
+apt-get update
+apt-get install -y libgdal1-dev libproj-dev libgeos-dev libudunits2-dev libv8-dev libcairo2-dev libnetcdf-dev
+
+apt-get install -y wget nano
+apt-get install -y libblas3 libblas-dev liblapack-dev liblapack3 curl
+apt-get install -y gcc fort77 aptitude
+apt-get install -y g++
+apt-get install -y xorg-dev
+apt-get install -y libreadline-dev
+apt-get install -y gfortran
+gfortran --version
+apt-get install -y libssl-dev libxml2-dev libpcre3-dev liblzma-dev libbz2-dev libcurl4-openssl-dev 
+apt-get install -y libhdf5-dev hdf5-helpers libmariadb-client-lgpl-dev python-pip  python-virtualenv
+
+pip install umap-learn 
+pip install louvain
+
+# installing packages from cran
+R --slave -e 'install.packages("devtools",repos="https://cran.rstudio.com/")'
+R --slave -e 'install.packages("dplyr",repos="https://cran.rstudio.com/")'
+R --slave -e 'install.packages("rhdr5",repos="https://cran.rstudio.com/")'
+R --slave -e 'install.packages("Seurat",repos="https://cran.rstudio.com/")'
+R --slave -e 'install.packages("reticulate",repos="https://cran.rstudio.com/")'
+
+# installing from bioc
+R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("pachterlab/sleuth")'
+R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("cummeRbund")'
+R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("monocle")'
+R --slave -e 'devtools::install_github("cole-trapnell-lab/DDRTree", ref="simple-ppt-like")'
+R --slave -e 'devtools::install_github("cole-trapnell-lab/L1-graph")'
+R --slave -e 'devtools::install_github("cole-trapnell-lab/monocle-release", ref="monocle3_alpha")'
+R --slave -e 'source("http://cf.10xgenomics.com/supp/cell-exp/rkit-install-2.0.0.R")'
