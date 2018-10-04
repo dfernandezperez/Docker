@@ -14,11 +14,8 @@ exec R "$@"
 apt-get update
 apt-get install -y apt-transport-https apt-utils software-properties-common
 
-#add CRAN/Ubuntu repo, add key, then refresh
-apt-get update
-apt-get install -y libgdal1-dev libproj-dev libgeos-dev libudunits2-dev libv8-dev libcairo2-dev libnetcdf-dev
+apt-get install -y curl wget nano libboost-all-dev libudunits2-dev gawk
 
-apt-get install -y wget nano
 apt-get install -y libblas3 libblas-dev liblapack-dev liblapack3 curl
 apt-get install -y gcc fort77 aptitude
 apt-get install -y g++
