@@ -37,7 +37,7 @@ R --slave -e 'install.packages("Seurat",repos="https://cran.rstudio.com/")'
 R --slave -e 'install.packages("reticulate",repos="https://cran.rstudio.com/")'
 
 # installing from bioc
-R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("pachterlab/sleuth")'
+#R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("pachterlab/sleuth")'
 R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("cummeRbund")'
 R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("monocle")'
 R --slave -e 'devtools::install_github("cole-trapnell-lab/DDRTree", ref="simple-ppt-like")'
