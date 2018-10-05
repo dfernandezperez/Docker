@@ -2,13 +2,13 @@ Bootstrap: docker
 From: bioconductor/release_core2
 
 %apprun R
-exec R "$@"
+exec R --vanilla "$@"
 
 %apprun Rscript
-exec Rscript "$@"
+exec Rscript --vanilla "$@"
 
 %runscript
-exec R "$@"
+exec R --vanilla "$@"
 
 %post
 apt-get update
