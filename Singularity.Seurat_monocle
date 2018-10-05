@@ -50,7 +50,6 @@ R --slave -e 'devtools::install_github("cole-trapnell-lab/L1-graph")'
 R --slave -e 'source("http://cf.10xgenomics.com/supp/cell-exp/rkit-install-2.0.0.R")'
 
 # Some monocle3 dependencies
-biocLite("DelayedMatrixStats")
 R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("DelayedMatrixStats")'
 R --slave -e 'install.packages(c("spdep", "glmnet", "doParallel", "pbmcapply"))'
 # To install monocle3 alpha we need to downgrade the VGAM package until they fix a bug
