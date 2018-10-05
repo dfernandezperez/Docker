@@ -12,10 +12,10 @@ exec R "$@"
 
 %post
 apt-get update
+
+# Basic dependencies for Seurat and most R packages
 apt-get install -y apt-transport-https apt-utils software-properties-common
-
 apt-get install -y curl wget nano libboost-all-dev libudunits2-dev gawk
-
 apt-get install -y libblas3 libblas-dev liblapack-dev liblapack3 curl
 apt-get install -y gcc fort77 aptitude
 apt-get install -y g++
@@ -26,6 +26,10 @@ gfortran --version
 apt-get install -y libssl-dev libxml2-dev libpcre3-dev liblzma-dev libbz2-dev libcurl4-openssl-dev 
 apt-get install -y libhdf5-dev hdf5-helpers libmariadb-client-lgpl-dev python-pip  python-virtualenv
 
+# Dependencies for rgl package
+apt-get install xorg libglu1-mesa-dev libx11-dev libfreetype6-dev
+
+# Dependencies for umap and monocle
 pip install umap-learn 
 pip install louvain
 
@@ -35,6 +39,7 @@ R --slave -e 'install.packages("dplyr",repos="https://cran.rstudio.com/")'
 R --slave -e 'install.packages("rhdr5",repos="https://cran.rstudio.com/")'
 R --slave -e 'install.packages("Seurat",repos="https://cran.rstudio.com/")'
 R --slave -e 'install.packages("reticulate",repos="https://cran.rstudio.com/")'
+R --slave -e 'install.packages("rgl",repos="https://cran.rstudio.com/")'
 
 # installing from bioc
 #R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("pachterlab/sleuth")'
