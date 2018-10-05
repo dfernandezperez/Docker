@@ -27,7 +27,7 @@ apt-get install -y libssl-dev libxml2-dev libpcre3-dev liblzma-dev libbz2-dev li
 apt-get install -y libhdf5-dev hdf5-helpers libmariadb-client-lgpl-dev python-pip  python-virtualenv
 
 # Dependencies for rgl package
-apt-get install xorg libglu1-mesa-dev libx11-dev libfreetype6-dev
+apt-get install -y xorg libglu1-mesa-dev libx11-dev libfreetype6-dev
 
 # Dependencies for umap and monocle
 pip install umap-learn 
