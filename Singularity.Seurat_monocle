@@ -45,6 +45,7 @@ R --slave -e 'install.packages("rgl",repos="https://cran.rstudio.com/")'
 #R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("pachterlab/sleuth")'
 R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("cummeRbund")'
 R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("monocle")'
+R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("scran")
 R --slave -e 'devtools::install_github("cole-trapnell-lab/DDRTree", ref="simple-ppt-like")'
 R --slave -e 'devtools::install_github("cole-trapnell-lab/L1-graph")'
 R --slave -e 'source("http://cf.10xgenomics.com/supp/cell-exp/rkit-install-2.0.0.R")'
