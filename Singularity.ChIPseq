@@ -3,6 +3,7 @@ From: bioconductor/release_core2
 
 %environment
 export PATH="/opt/miniconda2/bin:$PATH"
+export PATH=/usr/local/bin:$PATH
 
 %post
 
