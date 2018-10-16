@@ -25,6 +25,9 @@ export PATH="/opt/miniconda2/bin:$PATH"
 	deeptools=3.1.1 multiqc=1.6a0 samblaster=0.1.24 wiggletools=1.2.2 pysam=0.15.0.1 bedops=2.4.35 \
 	ucsc-bedgraphtobigwig=366
 	
+	# Install R 3.5.1
+	/opt/miniconda2/bin/conda install -c r r=3.5.1
+	
 	# Install fastqc and openjdk from conda-forge due to some library problems
 	/opt/miniconda2/bin/conda install -y conda-forge::openjdk fastqc=0.11.7
 	
