@@ -1,2 +1,2 @@
-# ChIPseq-software
-Signularity recipie for ChIPseq software
+# bioinformatics-singularity
+Signularity recipies for bioinformatic pipelines
