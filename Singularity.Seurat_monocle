@@ -54,3 +54,5 @@ R --slave -e 'install.packages(c("spdep", "glmnet", "doParallel", "pbmcapply"))'
 wget https://cran.r-project.org/src/contrib/Archive/VGAM/VGAM_1.0-5.tar.gz
 R --slave -e 'install.packages("VGAM_1.0-5.tar.gz", source = FALASE)'
 R --slave -e 'library(monocle);devtools::install_github("cole-trapnell-lab/monocle-release", ref="monocle3_alpha", dependencies = FALSE)'
+
+R --slave -e 'devtools::install_github("ggjlab/scMCA")'
