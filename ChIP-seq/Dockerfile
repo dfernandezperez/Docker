@@ -1,4 +1,4 @@
-From: bioconductor/release_core2
+FROM bioconductor/release_core2
 
 
 RUN apt-get update
