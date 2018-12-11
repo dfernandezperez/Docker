@@ -38,8 +38,8 @@ RUN R --slave -e 'source("http://cf.10xgenomics.com/supp/cell-exp/rkit-install-2
 RUN R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("DelayedMatrixStats")'
 RUN R --slave -e 'install.packages(c("spdep", "glmnet", "doParallel", "pbmcapply"))'
 # To install monocle3 alpha we need to downgrade the VGAM package until they fix a bug
-RUN wget https://cran.r-project.org/src/contrib/Archive/VGAM/VGAM_1.0-5.tar.gz
-RUN R --slave -e 'install.packages("VGAM_1.0-5.tar.gz", source = FALASE)'
-RUN R --slave -e 'library(monocle);devtools::install_github("cole-trapnell-lab/monocle-release", ref="monocle3_alpha", dependencies = FALSE)'
+#RUN wget https://cran.r-project.org/src/contrib/Archive/VGAM/VGAM_1.0-5.tar.gz
+#RUN R --slave -e 'install.packages("VGAM_1.0-5.tar.gz", source = FALASE)'
+RUN R --slave -e 'library(monocle);devtools::install_github("cole-trapnell-lab/monocle-release", ref="monocle3_alpha")'
 
 RUN R --slave -e 'devtools::install_github("ggjlab/scMCA")'
