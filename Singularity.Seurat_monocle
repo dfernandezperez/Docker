@@ -33,6 +33,12 @@ apt-get install -y xorg libglu1-mesa-dev libx11-dev libfreetype6-dev
 pip install umap-learn 
 pip install louvain
 
+# Install Rstudio
+apt-get install gdebi-core
+wget https://download1.rstudio.org/rstudio-xenial-1.1.463-amd64.deb
+gdebi rstudio-xenial-1.1.463-amd64.deb
+rm rstudio-xenial-1.1.463-amd64.deb
+
 # installing packages from cran
 R --slave -e 'install.packages("devtools",repos="https://cran.rstudio.com/")'
 R --slave -e 'install.packages("dplyr",repos="https://cran.rstudio.com/")'
