@@ -32,8 +32,8 @@ apt-get install -y xorg libglu1-mesa-dev libx11-dev libfreetype6-dev
 # Dependencies for umap, monocle, phate (included into Seurat) and Magic.
 pip install umap-learn 
 pip install louvain
-pip install --user phate
-pip install --user magic-impute
+pip install phate
+pip install magic-impute
 
 # Install Rstudio
 #apt-get install gdebi-core
