@@ -49,6 +49,7 @@ R --slave -e 'install.packages("reticulate",repos="https://cran.rstudio.com/")'
 R --slave -e 'install.packages("rgl",repos="https://cran.rstudio.com/")'
 R --slave -e 'install.packages("shinythemes",repos="https://cran.rstudio.com/")'
 R --slave -e 'install.packages("phateR",repos="https://cran.rstudio.com/")'
+R --slave -e 'install.packages("Rmagic",repos="https://cran.rstudio.com/")'
 
 # installing from bioc
 R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("monocle")'
