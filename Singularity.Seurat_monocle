@@ -54,13 +54,16 @@ R --slave -e 'install.packages("Rmagic",repos="https://cran.rstudio.com/")'
 # installing from bioc
 R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("monocle")'
 R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("scran")'
-R --slave -e 'devtools::install_github("cole-trapnell-lab/DDRTree", ref="simple-ppt-like")'
-R --slave -e 'devtools::install_github("cole-trapnell-lab/L1-graph")'
+R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("destiny")'
+
+# installing from github
+R --slave -e 'devtools::install_github("ggjlab/scMCA")'
 R --slave -e 'source("http://cf.10xgenomics.com/supp/cell-exp/rkit-install-2.0.0.R")'
 
 # Some monocle3 dependencies
+R --slave -e 'devtools::install_github("cole-trapnell-lab/DDRTree", ref="simple-ppt-like")'
+R --slave -e 'devtools::install_github("cole-trapnell-lab/L1-graph")'
 R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("DelayedMatrixStats")'
 R --slave -e 'install.packages(c("spdep", "glmnet", "doParallel", "pbmcapply"))'
 R --slave -e 'library(monocle);devtools::install_github("cole-trapnell-lab/monocle-release", ref="monocle3_alpha", dependencies = FALSE)'
 
-R --slave -e 'devtools::install_github("ggjlab/scMCA")'
