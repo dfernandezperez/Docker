@@ -29,15 +29,17 @@ apt-get install -y libhdf5-dev hdf5-helpers libmariadb-client-lgpl-dev python-pi
 # Dependencies for rgl package
 apt-get install -y xorg libglu1-mesa-dev libx11-dev libfreetype6-dev
 
-# Dependencies for umap and monocle
+# Dependencies for umap, monocle, phate (included into Seurat) and Magic.
 pip install umap-learn 
 pip install louvain
+pip install --user phate
+pip install --user magic-impute
 
 # Install Rstudio
-apt-get install gdebi-core
-wget https://download1.rstudio.org/rstudio-xenial-1.1.463-amd64.deb
-gdebi rstudio-xenial-1.1.463-amd64.deb
-rm rstudio-xenial-1.1.463-amd64.deb
+#apt-get install gdebi-core
+#wget https://download1.rstudio.org/rstudio-xenial-1.1.463-amd64.deb
+#gdebi rstudio-xenial-1.1.463-amd64.deb
+#rm rstudio-xenial-1.1.463-amd64.deb
 
 # installing packages from cran
 R --slave -e 'install.packages("devtools",repos="https://cran.rstudio.com/")'
@@ -46,6 +48,7 @@ R --slave -e 'install.packages("Seurat",repos="https://cran.rstudio.com/")'
 R --slave -e 'install.packages("reticulate",repos="https://cran.rstudio.com/")'
 R --slave -e 'install.packages("rgl",repos="https://cran.rstudio.com/")'
 R --slave -e 'install.packages("shinythemes",repos="https://cran.rstudio.com/")'
+R --slave -e 'install.packages("phateR",repos="https://cran.rstudio.com/")'
 
 # installing from bioc
 R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite("monocle")'
