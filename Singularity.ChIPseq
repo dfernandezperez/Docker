@@ -32,6 +32,6 @@ export PATH=/usr/local/bin:$PATH
   
 	# R packages and bioconductor
 	R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-                      biocLite(c('ChIPseeker', 'org.Mm.eg.db', 'org.Hs.eg.db', 'TxDb.Mmusculus.UCSC.mm9.knownGene', 'TxDb.Mmusculus.UCSC.mm10.knownGene', 'TxDb.Hsapiens.UCSC.hg19.knownGene', 'TxDb.Hsapiens.UCSC.hg18.knownGene'))" 
+                      biocLite(c('ChIPseeker', 'org.Mm.eg.db', 'org.Hs.eg.db', 'TxDb.Mmusculus.UCSC.mm9.knownGene', 'TxDb.Mmusculus.UCSC.mm10.knownGene', 'TxDb.Hsapiens.UCSC.hg19.knownGene', 'TxDb.Hsapiens.UCSC.hg18.knownGene', 'TxDb.Hsapiens.UCSC.hg38.knownGene'))" 
 		      
 	R --slave -e 'install.packages(c("ggplot2", "data.table", "RColorBrewer", "devtools", "spp"), repos="https://cloud.r-project.org/")'
