@@ -23,7 +23,7 @@ RUN mv ./fastp /usr/local/bin
 
 # R packages and bioconductor
 RUN R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-                    biocLite(c('org.Mm.eg.db', 'org.Hs.eg.db', 'DESeq2', 'clusterProfiler'))" 
+                    biocLite(c('org.Mm.eg.db', 'org.Hs.eg.db', 'DESeq2', 'clusterProfiler', 'pcaExplorer'))" 
 
 RUN R --slave -e 'install.packages(c("data.table", "RColorBrewer", "devtools", "tidyverse", "tibble", "openxlsx", "rJava"), repos="https://cloud.r-project.org/")'
 
