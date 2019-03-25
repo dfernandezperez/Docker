@@ -6,7 +6,7 @@ RUN apt-get install -y curl wget libboost-all-dev libudunits2-dev
 
 # Install miniconda
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-RUN Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3
+RUN bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3
 RUN /opt/miniconda3/bin/conda config --add channels defaults
 RUN /opt/miniconda3/bin/conda config --add channels conda-forge
 RUN /opt/miniconda3/bin/conda config --add channels bioconda
