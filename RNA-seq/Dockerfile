@@ -11,7 +11,7 @@ RUN /opt/miniconda3/bin/conda config --add channels defaults
 RUN /opt/miniconda3/bin/conda config --add channels conda-forge
 RUN /opt/miniconda3/bin/conda config --add channels bioconda
 
-# Install software required for chipseq pipeline with bioconda
+# Install software required for rnaseq pipeline with bioconda
 RUN /opt/miniconda3/bin/conda install -c bioconda samtools=1.9 star=2.7.0e-0 preseq=2.0.3 \
 deeptools=3.1.1 multiqc=1.6a0 pysam=0.15.0.1 bedops=2.4.35 \
 fastqc=0.11.8 picard=2.18.7 subread=1.6.4 rseqc=3.0.0
@@ -30,3 +30,5 @@ RUN R --slave -e 'install.packages(c("data.table", "RColorBrewer", "devtools", "
 # Update path
 ENV PATH "/opt/miniconda3/bin:$PATH"
 ENV PATH "/usr/local/bin:$PATH"
+
+RUN /opt/miniconda3/bin/conda install -c bioconda gffutils=0.9
