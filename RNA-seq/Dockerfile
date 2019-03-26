@@ -28,5 +28,5 @@ RUN R --slave -e "source('https://bioconductor.org/biocLite.R'); \
 RUN R --slave -e 'install.packages(c("data.table", "RColorBrewer", "devtools", "tidyverse", "tibble", "openxlsx"), repos="https://cloud.r-project.org/")'
 
 # Update path
-RUN ENV PATH "/opt/miniconda3/bin:$PATH"
-RUN ENV PATH "/usr/local/bin:$PATH"
+ENV PATH "/opt/miniconda3/bin:$PATH"
+ENV PATH "/usr/local/bin:$PATH"
