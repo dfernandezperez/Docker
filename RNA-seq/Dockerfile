@@ -34,3 +34,6 @@ ENV PATH "/usr/local/bin:$PATH"
 RUN /opt/miniconda3/bin/conda install -c bioconda gffutils=0.9
 RUN R --slave -e "source('https://bioconductor.org/biocLite.R'); \
                     biocLite('ReactomePA')" 
+
+RUN R --slave -e "source('https://bioconductor.org/biocLite.R'); \
+                    biocLite('IHW')" 
