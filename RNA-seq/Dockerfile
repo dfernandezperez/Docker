@@ -37,3 +37,5 @@ RUN R --slave -e "source('https://bioconductor.org/biocLite.R'); \
 
 RUN R --slave -e "source('https://bioconductor.org/biocLite.R'); \
                     biocLite('IHW')" 
+RUN R --slave -e "source('https://bioconductor.org/biocLite.R'); \
+                    biocLite('apeglm')" 
