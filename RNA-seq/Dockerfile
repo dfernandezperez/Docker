@@ -39,3 +39,5 @@ RUN R --slave -e "source('https://bioconductor.org/biocLite.R'); \
                     biocLite('IHW')" 
 RUN R --slave -e "source('https://bioconductor.org/biocLite.R'); \
                     biocLite('apeglm')" 
+
+RUN /opt/miniconda3/bin/conda install -c bioconda samblaster=0.1.24
