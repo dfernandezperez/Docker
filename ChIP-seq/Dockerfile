@@ -14,7 +14,7 @@ RUN /opt/miniconda2/bin/conda config --add channels bioconda
 # Install software required for chipseq pipeline with bioconda
 RUN /opt/miniconda2/bin/conda install -c bioconda samtools=1.9 bowtie=1.2.2 macs2=2.1.1.20160309 preseq=2.0.3 \
 deeptools=3.1.1 multiqc=1.6a0 samblaster=0.1.24 wiggletools=1.2.2 pysam=0.15.0.1 bedops=2.4.35 r-spp=1.15.2 \
-ucsc-bedgraphtobigwig=366 fastqc=0.11.8 picard=2.18.7 sicer=1.1-3
+ucsc-bedgraphtobigwig=366 fastqc=0.11.8 picard=2.18.7 sicer=1.1
 
 # Install fastp manually because bioconda verison is not the latest
 RUN wget http://opengene.org/fastp/fastp
