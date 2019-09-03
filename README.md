@@ -1,2 +1,2 @@
-# bioinformatics-singularity
-Signularity recipies for bioinformatic pipelines
+# Docker
+Singularity (old) and docker recipies for bioinformatic pipelines
