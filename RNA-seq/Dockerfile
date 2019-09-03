@@ -14,7 +14,7 @@ RUN /opt/miniconda3/bin/conda config --add channels bioconda
 # Install software required for rnaseq pipeline with bioconda
 RUN /opt/miniconda3/bin/conda install -c bioconda samtools=1.9 star=2.7.0e-0 preseq=2.0.3 \
 deeptools=3.1.1 multiqc=1.6a0 pysam=0.15.0.1 bedops=2.4.35 \
-fastqc=0.11.8 picard=2.18.7 subread=1.6.4 rseqc=3.0.0
+fastqc=0.11.8 picard=2.18.7 subread=1.6.4 rseqc=3.0.0 gffutils=0.9 samblaster=0.1.24
 
 # Install fastp manually because bioconda verison is not the latest
 RUN wget http://opengene.org/fastp/fastp
@@ -23,21 +23,10 @@ RUN mv ./fastp /usr/local/bin
 
 # R packages and bioconductor
 RUN R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-                    biocLite(c('org.Mm.eg.db', 'org.Hs.eg.db', 'DESeq2', 'clusterProfiler', 'pcaExplorer'))" 
+                    biocLite(c('org.Mm.eg.db', 'org.Hs.eg.db', 'DESeq2', 'clusterProfiler', 'pcaExplorer', 'ReactomePA', 'IHW', 'apeglm'))" 
 
 RUN R --slave -e 'install.packages(c("data.table", "RColorBrewer", "devtools", "tidyverse", "tibble", "openxlsx"), repos="https://cloud.r-project.org/")'
 
 # Update path
 ENV PATH "/opt/miniconda3/bin:$PATH"
 ENV PATH "/usr/local/bin:$PATH"
-
-RUN /opt/miniconda3/bin/conda install -c bioconda gffutils=0.9
-RUN R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-                    biocLite('ReactomePA')" 
-
-RUN R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-                    biocLite('IHW')" 
-RUN R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-                    biocLite('apeglm')" 
-
-RUN /opt/miniconda3/bin/conda install -c bioconda samblaster=0.1.24
