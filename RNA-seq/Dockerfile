@@ -12,8 +12,8 @@ RUN /opt/miniconda3/bin/conda config --add channels conda-forge
 RUN /opt/miniconda3/bin/conda config --add channels bioconda
 
 # Install software required for rnaseq pipeline with bioconda
-RUN /opt/miniconda3/bin/conda install -c bioconda samtools=1.9 star=2.7.0e-0 preseq=2.0.3 \
-deeptools=3.1.1 multiqc=1.6a0 pysam=0.15.0.1 bedops=2.4.35 \
+RUN /opt/miniconda3/bin/conda install -c bioconda samtools=1.9 star=2.7.2b-0 preseq=2.0.3 \
+deeptools=3.3.0-0 multiqc=1.7-4 pysam=0.15.3-1 bedops=2.4.36-1 \
 fastqc=0.11.8 picard=2.18.7 subread=1.6.4 rseqc=3.0.0 gffutils=0.9 samblaster=0.1.24
 
 # Install fastp manually because bioconda verison is not the latest
