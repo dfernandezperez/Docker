@@ -16,6 +16,7 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
 && /opt/miniconda3/bin/conda config --add channels bioconda
 
 # Install software required for rnaseq pipeline with bioconda
+# Set salmon version manually because otherwise it installs 0.13.1
 RUN /opt/miniconda3/bin/conda install -c bioconda \
 samtools \
 star \
@@ -30,7 +31,8 @@ subread \
 rseqc \
 gffutils \
 samblaster \
-kallisto
+kallisto \
+salmon=1.2.1
 
 # Install fastp manually because bioconda verison is not the latest
 RUN wget http://opengene.org/fastp/fastp \
