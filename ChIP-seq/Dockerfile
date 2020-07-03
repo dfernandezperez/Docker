@@ -16,8 +16,9 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh \
 && /opt/miniconda2/bin/conda config --add channels bioconda
 
 # Install software required for chipseq pipeline with bioconda
+# Force version of samtools to avoid error https://github.com/bioconda/bioconda-recipes/issues/13958
 RUN /opt/miniconda2/bin/conda install -c bioconda \
-samtools \
+samtools=1.10 \
 bowtie \
 macs2 \
 preseq \

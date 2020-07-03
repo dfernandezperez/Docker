@@ -17,8 +17,9 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
 
 # Install software required for rnaseq pipeline with bioconda
 # Set salmon version manually because otherwise it installs 0.13.1
+# Force version of samtools to avoid error https://github.com/bioconda/bioconda-recipes/issues/13958
 RUN /opt/miniconda3/bin/conda install -c bioconda \
-samtools \
+samtools=samtools=1.10 \
 star \
 preseq \
 deeptools \
