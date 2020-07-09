@@ -19,7 +19,7 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
 # Set salmon version manually because otherwise it installs 0.13.1
 # Force version of samtools to avoid error https://github.com/bioconda/bioconda-recipes/issues/13958
 RUN /opt/miniconda3/bin/conda install -c bioconda \
-samtools=samtools=1.10 \
+samtools=1.10 \
 star \
 preseq \
 deeptools \
@@ -40,34 +40,11 @@ RUN wget http://opengene.org/fastp/fastp \
 && chmod a+x ./fastp \
 && mv ./fastp /usr/local/bin
 
-# bioconductor
-RUN R --slave -e "BiocManager::install(c( \
-        'org.Mm.eg.db', \
-        'org.Hs.eg.db', \
-        'DESeq2', \
-        'clusterProfiler', \
-        'pcaExplorer', \
-        'ReactomePA', \
-        'IHW', \
-        'apeglm', \
-        'tximport', \
-        'rhdf5'))" 
 
-# cran
-RUN R --slave -e 'install.packages(c( \
-        "data.table", \
-        "RColorBrewer", \
-        "devtools", \
-        "tidyverse", \
-        "tibble", \
-        "openxlsx", \
-        "msigdbr", \
-        "ggforce"), \
-        repos="https://cloud.r-project.org/")'
-
-# devtools
-RUN R --slave -e 'devtools::install_github(c( \
-    "VPetukhov/ggrastr"))'
+# Install R packages
+COPY *.R .
+RUN Rscript install_packages_cranDev.R
+RUN Rscript install_packages_bioc.R
 
 
 # Update path
