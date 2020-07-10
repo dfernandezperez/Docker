@@ -42,9 +42,10 @@ RUN wget http://opengene.org/fastp/fastp \
 
 
 # Install R packages
-COPY *.R .
-RUN Rscript install_packages_cranDev.R
-RUN Rscript install_packages_bioc.R
+RUN mkdir /install_packages
+COPY *.R /install_packages/
+RUN Rscript /install_packages/install_packages_cranDev.R
+RUN Rscript /install_packages/install_packages_bioc.R
 
 
 # Update path
