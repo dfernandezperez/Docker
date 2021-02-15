@@ -15,3 +15,9 @@ wget http://159.149.160.88/pscan_chip_dev/Source/hg38.tar.gz && \
 wget http://159.149.160.88/pscan_chip_dev/Source/mm10.tar.gz && \
 tar -xvf hg38.tar.gz  && \
 tar -xvf mm10.tar.gz
+
+RUN cd Pscan_ChIP && \
+rm mm10.tar.gz hg38.tar.gz && \
+mv * .. && \
+cd .. && \
+rm -rf Pscan_ChIP.tar.gz Pscan_ChIP/

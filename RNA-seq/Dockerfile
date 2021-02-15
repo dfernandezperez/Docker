@@ -21,7 +21,6 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
 RUN /opt/miniconda3/bin/conda install -c bioconda \
 samtools=1.10 \
 star \
-preseq \
 deeptools \
 multiqc \
 pysam \
@@ -32,8 +31,7 @@ subread \
 rseqc \
 gffutils \
 samblaster \
-kallisto \
-salmon=1.2.1
+salmon
 
 # Install fastp manually because bioconda verison is not the latest
 RUN wget http://opengene.org/fastp/fastp \

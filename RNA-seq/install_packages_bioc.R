@@ -10,4 +10,4 @@ BiocManager::install(c(
         'apeglm',
         'tximport',
         'rhdf5',
-		'GenomicFeatures'))
+        'GenomicFeatures'))
