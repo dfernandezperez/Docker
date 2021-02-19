@@ -8,30 +8,6 @@ libboost-all-dev \
 libudunits2-dev \
 gawk
 
-# Install miniconda
-RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh \
-&& bash Miniconda2-latest-Linux-x86_64.sh -b -p /opt/miniconda2 \
-&& /opt/miniconda2/bin/conda config --add channels bioconda \
-&& /opt/miniconda2/bin/conda config --add channels defaults \
-&& /opt/miniconda2/bin/conda config --add channels conda-forge
-
-# Install software required for chipseq pipeline with bioconda
-# Force version of samtools to avoid error https://github.com/bioconda/bioconda-recipes/issues/13958
-RUN /opt/miniconda2/bin/conda install -c bioconda samtools \
-&& /opt/miniconda2/bin/conda install -c bioconda bowtie2 \
-&& /opt/miniconda2/bin/conda install -c bioconda macs2 \
-&& /opt/miniconda2/bin/conda install -c bioconda preseq \
-&& /opt/miniconda2/bin/conda install -c bioconda deeptools \
-&& /opt/miniconda2/bin/conda install -c bioconda multiqc \
-&& /opt/miniconda2/bin/conda install -c bioconda samblaster \
-&& /opt/miniconda2/bin/conda install -c bioconda wiggletools \
-&& /opt/miniconda2/bin/conda install -c bioconda pysam \
-&& /opt/miniconda2/bin/conda install -c bioconda bedops \
-&& /opt/miniconda2/bin/conda install -c bioconda r-spp \
-&& /opt/miniconda2/bin/conda install -c bioconda ucsc-bedgraphtobigwig \
-&& /opt/miniconda2/bin/conda install -c bioconda fastqc \
-&& /opt/miniconda2/bin/conda install -c bioconda picard
-
 # Install fastp manually because bioconda verison is not the latest
 RUN wget http://opengene.org/fastp/fastp \
 && chmod a+x ./fastp \
@@ -59,7 +35,36 @@ RUN R --slave -e 'install.packages(c( \
         "spp"), \
         repos="https://cloud.r-project.org/")'
 
+RUN mv /SEACR/SEACR_* /
+
+# Install miniconda
+RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh \
+&& bash Miniconda2-latest-Linux-x86_64.sh -b -p /opt/miniconda2 \
+&& /opt/miniconda2/bin/conda config --add channels bioconda \
+&& /opt/miniconda2/bin/conda config --add channels defaults \
+&& /opt/miniconda2/bin/conda config --add channels conda-forge
+
+# Install software required for chipseq pipeline with bioconda
+# Force version of samtools to avoid error https://github.com/merenlab/anvio/issues/1479
+RUN /opt/miniconda2/bin/conda install -c bioconda samtools \
+&& /opt/miniconda2/bin/conda install -c bioconda bowtie2 \
+&& /opt/miniconda2/bin/conda install -c bioconda macs2 \
+&& /opt/miniconda2/bin/conda install -c bioconda preseq \
+&& /opt/miniconda2/bin/conda install -c bioconda deeptools \
+&& /opt/miniconda2/bin/conda install -c bioconda multiqc \
+&& /opt/miniconda2/bin/conda install -c bioconda samblaster \
+&& /opt/miniconda2/bin/conda install -c bioconda wiggletools \
+&& /opt/miniconda2/bin/conda install -c bioconda pysam \
+&& /opt/miniconda2/bin/conda install -c bioconda bedops \
+&& /opt/miniconda2/bin/conda install -c bioconda r-spp \
+&& /opt/miniconda2/bin/conda install -c bioconda ucsc-bedgraphtobigwig \
+&& /opt/miniconda2/bin/conda install -c bioconda fastqc \
+&& /opt/miniconda2/bin/conda install -c bioconda bedtools \
+&& /opt/miniconda2/bin/conda update pysam \
+&& /opt/miniconda2/bin/conda install -c bioconda samtools=1.9 --force-reinstall 
+
+
+
 # Update path
 ENV PATH "/opt/miniconda2/bin:$PATH"
 ENV PATH "/usr/local/bin:$PATH"
-ENV PATH "/SEACR:$PATH"
