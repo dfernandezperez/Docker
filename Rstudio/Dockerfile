@@ -29,6 +29,7 @@ COPY ccache.conf /root/.ccache/
 ## libfftw3-dev                           heatmaps (R package)
 ## libglpk-dev                            FlowSOM (R package)
 ## libpoppler-cpp-dev                     pdftools (R package)
+## libgit2-28                             git2r (R package)
 ##----------------------------------------------------------------------------##
 RUN apt-get --quiet update --yes \
   && apt-get --quiet upgrade --yes \
@@ -60,12 +61,13 @@ RUN apt-get --quiet update --yes \
     ccache \
     libfftw3-dev \
     mysql-server \
+    libgit2-28 \
   && rm -rf /var/lib/apt/lists/*
 
 ##----------------------------------------------------------------------------##
 ## install conda to install Python 3.7 afterwards
 ##----------------------------------------------------------------------------##
-# https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh this install py 3.8 which gives me problems later
+# py 3.8 adn 3.9 give me problems later
 RUN cd / \
   && wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.3-Linux-x86_64.sh \
   && bash Miniconda3-py37_4.8.3-Linux-x86_64.sh -b -p /miniconda3
@@ -182,5 +184,5 @@ RUN Rscript /Rscripts/packages_compbio.R
 COPY packages_single_cell.R /Rscripts/
 RUN Rscript /Rscripts/packages_single_cell.R
 
-COPY packages_single_cell_experimental.R /Rscripts/
-RUN Rscript /Rscripts/packages_single_cell_experimental.R
+#COPY packages_single_cell_experimental.R /Rscripts/
+#RUN Rscript /Rscripts/packages_single_cell_experimental.R

@@ -42,7 +42,6 @@ packages_to_install <- c(
   'shinyjs',
   'shinythemes',
   'sf',
-  'statsbomb/StatsBombR',
   'stringi',
   'tensorflow',
   'tsne',
