@@ -3,7 +3,6 @@ source('/Rscripts/install_packages_function.R')
 # packages for single cell analysis
 # force package multtest to avoid installation error when it's required as dependency
 packages_to_install <- c(
-  'batchelor',
   'BUStools/BUSpaRse',
   'destiny',
   'cellranger',
@@ -14,7 +13,6 @@ packages_to_install <- c(
   'glmGamPoi',
   'theislab/kBET',
   'MetaNeighbor',
-  'monocle',
   'muscat',
   'phateR',
   'Seurat',
@@ -40,12 +38,3 @@ install_packages(packages_to_install)
 # alternative location for R packagesq
 place_for_other_libraries <- '/other_R_libraries'
 dir.create(place_for_other_libraries, recursive = TRUE)
-
-# Seurat 2.3.4
-devtools::install_version(
-  'Seurat',
-  version = '2.3.4',
-  repos = 'http://cran.us.r-project.org',
-  lib = place_for_other_libraries,
-  quiet = TRUE
-)

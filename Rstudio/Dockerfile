@@ -1,4 +1,4 @@
-FROM rocker/rstudio:latest
+FROM rocker/rstudio:4.2.1
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG en_US.UTF-8
@@ -111,6 +111,8 @@ RUN conda install --quiet --yes -c bioconda \
 ## h5py click pysam velocyto   velocyto
 ## scvelo                      scVelo
 ## jupyter                     jupyter
+## radian                      r terminal
+## metacells                   v2 of the metacell algorithm
 ##----------------------------------------------------------------------------##
 RUN python3 -m pip install \
   click \
@@ -136,7 +138,9 @@ RUN python3 -m pip install \
   snaptools \
   tensorflow \
   umap-learn \
-  jupyter
+  jupyter \
+  metacells \
+  radian
 
 RUN python3 -m pip install \
   velocyto \
