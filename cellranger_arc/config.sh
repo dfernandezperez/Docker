@@ -1,0 +1,6 @@
+version="2.0.2"
+site_url="https://support.10xgenomics.com/single-cell-multiome-atac-gex/software/downloads/2.0"
+download_url="https://cf.10xgenomics.com/releases/cell-arc/cellranger-arc-2.0.2.tar.gz?Expires=1681173517&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZi4xMHhnZW5vbWljcy5jb20vcmVsZWFzZXMvY2VsbC1hcmMvY2VsbHJhbmdlci1hcmMtMi4wLjIudGFyLmd6IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjgxMTczNTE3fX19XX0_&Signature=kQhQB0LNjlnZFJhYeda7NqLf4GgCAxy6lULbNYdXym8lHzrByNNhqbvw3f5cffR6Nwccxxeqpo8rtjRNq75HuNVYuxvKeIwUFYugUmguFuNZ9gVBgPLrXPAfq3BzFEH30ywl5zRmZ-7SDR2GS4pnmSjDu1nkWXlujj~5~Jco0ifiiAdLzK71fu3uwMp~xy~h7QiNzbMyXstLUi9QVxzj5DPjNemGnla4zJJvbh51wSAk1LUmYj-QfVONLLkGU8zPNeot7blCFvgrNqzOFlphxUPgmTfsaGS0cv2xOiTrBiAmIO1XNm5J2uyeb1Z~~b3OLAlQ~g8XoYWpJK-Y7moUUg__&Key-Pair-Id=APKAI7S6A5RYOXBWRPDA"
+
+# docker related
+image_name="dfernand/cellranger_arc"
