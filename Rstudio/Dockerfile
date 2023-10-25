@@ -1,4 +1,4 @@
-FROM rocker/rstudio:4.2.1
+FROM rocker/rstudio:4.3.1
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG en_US.UTF-8
@@ -29,16 +29,17 @@ COPY ccache.conf /root/.ccache/
 ## libfftw3-dev                           heatmaps (R package)
 ## libglpk-dev                            FlowSOM (R package)
 ## libpoppler-cpp-dev                     pdftools (R package)
-## libgit2-28                             git2r (R package)
+## libgit2-dev                             git2r (R package)
+## pandoc                                 quarto 
 ##----------------------------------------------------------------------------##
 RUN apt-get --quiet update --yes \
   && apt-get --quiet upgrade --yes \
   && apt-get --quiet install --yes  \
-    python-dev \
- #   python-pip \
-    python3-dev \
-    python3-pip \
-    python3-tk \
+    # python-dev \
+    # python-pip \
+    # python3-dev \
+    # python3-pip \
+    # python3-tk \
     pandoc \
     libcurl4-openssl-dev \
     libssl-dev \
@@ -61,13 +62,13 @@ RUN apt-get --quiet update --yes \
     ccache \
     libfftw3-dev \
     mysql-server \
-    libgit2-28 \
+    libgit2-dev \
   && rm -rf /var/lib/apt/lists/*
 
 ##----------------------------------------------------------------------------##
 ## install conda to install Python 3.7 afterwards
 ##----------------------------------------------------------------------------##
-# py 3.8 adn 3.9 give me problems later
+# py 3.8 and 3.9 give me problems later
 RUN cd / \
   && wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.3-Linux-x86_64.sh \
   && bash Miniconda3-py37_4.8.3-Linux-x86_64.sh -b -p /miniconda3

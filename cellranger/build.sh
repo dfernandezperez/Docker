@@ -11,5 +11,6 @@ fi
 # build ${image_name}:${version}
 docker build \
     --tag ${image_name}:${version} \
+    --tag ${image_name}:latest \
     --build-arg DOWNLOAD_URL=${download_url} \
     --build-arg CELLRANGER_VERSION=${version} .
