@@ -1,4 +1,4 @@
-FROM rocker/rstudio:4.3.1
+FROM rocker/rstudio:4.3.2
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG en_US.UTF-8
