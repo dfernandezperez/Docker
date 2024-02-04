@@ -19,7 +19,7 @@ packages_to_install <- c(
   'golem',
   'here',
   'h2o',
-  'hdf5r',
+  'rhdf5',
   'intrinsicDimension',
   'lwgeom',
   'magrittr',
