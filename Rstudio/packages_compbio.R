@@ -21,7 +21,7 @@ packages_to_install <- c(
   'org.Hs.eg.db',
   'org.Mm.eg.db',
   'ReactomePA',
-  'Rmagic',
+  # 'Rmagic',
   'Rsamtools',
   'Rsubread',
   'themis',
