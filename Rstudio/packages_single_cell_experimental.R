@@ -22,3 +22,8 @@ remotes::install_github("stuart-lab/signac", ref = "develop")
 
 # Doublet finder
 remotes::install_github('chris-mcginnis-ucsf/DoubletFinder')
+
+# Seurat 5 performance
+setRepositories(ind = 1:3, addURLs = c('https://satijalab.r-universe.dev', 'https://bnprks.r-universe.dev/'))
+install.packages(c("BPCells", "presto", "glmGamPoi"))
+
