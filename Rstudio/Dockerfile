@@ -1,4 +1,4 @@
-FROM rocker/rstudio:4.3.1
+FROM rocker/rstudio:4.3.2
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG en_US.UTF-8
@@ -189,5 +189,5 @@ RUN Rscript /Rscripts/packages_compbio.R
 COPY packages_single_cell.R /Rscripts/
 RUN Rscript /Rscripts/packages_single_cell.R
 
-#COPY packages_single_cell_experimental.R /Rscripts/
-#RUN Rscript /Rscripts/packages_single_cell_experimental.R
+COPY packages_single_cell_experimental.R /Rscripts/
+RUN Rscript /Rscripts/packages_single_cell_experimental.R

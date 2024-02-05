@@ -9,7 +9,8 @@ packages_to_install <- c(
   'zhouzilu/DENDRO',
   'diffusionMap',
   'DropletUtils',
-  'cole-trapnell-lab/garnett',
+  'cole-trapnell-lab/monocle3',
+  #'cole-trapnell-lab/garnett',
   'glmGamPoi',
   'theislab/kBET',
   'MetaNeighbor',
@@ -29,8 +30,9 @@ packages_to_install <- c(
   'slingshot',
   'splatter',
   'multtest',
-  'YosefLab/VISION',
-  'velocyto-team/velocyto.R'
+  #'YosefLab/VISION',
+  #'velocyto-team/velocyto.R',
+  'Voyager'
 )
 
 install_packages(packages_to_install)
