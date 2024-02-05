@@ -31,7 +31,7 @@ packages_to_install <- c(
   'splatter',
   'multtest',
   'YosefLab/VISION',
-  'velocyto-team/velocyto.R',
+  #'velocyto-team/velocyto.R',
   'Voyager'
 )
 
