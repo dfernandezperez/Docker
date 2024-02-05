@@ -13,8 +13,9 @@ remotes::install_github("mojaveazure/seurat-disk")
 # metacell
 BiocManager::install('metacell', site_repository = 'tanaylab.bitbucket.io/repo', quiet = TRUE)
 
-# Cicero
+# Cicero & Garnett
 BiocManager::install('Gviz', update = TRUE, ask = FALSE, force = TRUE, quiet = TRUE)
+remotes::install_github("cole-trapnell-lab/garnett", ref = "monocle3")
 remotes::install_github('cole-trapnell-lab/cicero-release', ref = 'monocle3')
 
 # Signac
@@ -25,5 +26,5 @@ remotes::install_github('chris-mcginnis-ucsf/DoubletFinder')
 
 # Seurat 5 performance
 setRepositories(ind = 1:3, addURLs = c('https://satijalab.r-universe.dev', 'https://bnprks.r-universe.dev/'))
-install.packages(c("BPCells", "presto", "glmGamPoi"))
+install.packages(c("BPCells", "presto"))
 
