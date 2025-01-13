@@ -1,24 +1,11 @@
-
 # Monocle 3
-# devtools::install_url('https://cran.r-project.org/src/contrib/Archive/Matrix.utils/Matrix.utils_0.9.7.tar.gz')
 BiocManager::install('cole-trapnell-lab/monocle3', update = TRUE, ask = FALSE, force = TRUE, quiet = TRUE)
 
-# cisTopic
-BiocManager::install('aertslab/cisTopic', update = TRUE, ask = FALSE, force = TRUE, quiet = TRUE)
-
 # seurat-wrapper & seuratDisk
-BiocManager::install('satijalab/seurat-wrappers', update = TRUE, ask = FALSE, force = TRUE, quiet = TRUE)
+remotes::install_github('satijalab/seurat-wrappers')
 remotes::install_github("mojaveazure/seurat-disk")
 
-# metacell
-BiocManager::install('metacell', site_repository = 'tanaylab.bitbucket.io/repo', quiet = TRUE)
-
-# Cicero
-BiocManager::install('Gviz', update = TRUE, ask = FALSE, force = TRUE, quiet = TRUE)
-remotes::install_github('cole-trapnell-lab/cicero-release', ref = 'monocle3')
-
-# Signac
-remotes::install_github("stuart-lab/signac", ref = "develop")
-
-# Doublet finder
-remotes::install_github('chris-mcginnis-ucsf/DoubletFinder')
+# SCPA
+devtools::install_version("crossmatch", version = "1.3.1", repos = "http://cran.us.r-project.org")
+devtools::install_version("multicross", version = "2.1.0", repos = "http://cran.us.r-project.org")
+devtools::install_github("jackbibby1/SCPA")

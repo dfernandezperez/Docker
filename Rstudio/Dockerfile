@@ -1,4 +1,4 @@
-FROM rocker/rstudio:4.3.1
+FROM rocker/rstudio:4.4.2
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG en_US.UTF-8
@@ -66,22 +66,20 @@ RUN apt-get --quiet update --yes \
   && rm -rf /var/lib/apt/lists/*
 
 ##----------------------------------------------------------------------------##
-## install conda to install Python 3.7 afterwards
+## install conda
 ##----------------------------------------------------------------------------##
-# py 3.8 and 3.9 give me problems later
 RUN cd / \
-  && wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.3-Linux-x86_64.sh \
-  && bash Miniconda3-py37_4.8.3-Linux-x86_64.sh -b -p /miniconda3
+  && wget --quiet https://github.com/conda-forge/miniforge/releases/download/24.11.2-1/Miniforge3-24.11.2-1-Linux-x86_64.sh \
+  && bash Miniforge3-24.11.2-1-Linux-x86_64.sh -b -p /miniconda3
 ENV PATH "$PATH:/miniconda3/bin"
 
 ##----------------------------------------------------------------------------##
-## make Python 3.7 default because velocyto requires at least Python 3.6
+## make Python 3.12 default because velocyto requires at least Python 3.6
 ## - set 'python' command to call Python 2.7
-## - set 'python3' command to call Python 3.7
+## - set 'python3' command to call Python 3.12
 ## - rm lsb_release because it prevents pip3 from working properly
 ##----------------------------------------------------------------------------##
-RUN update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1 \
-  && update-alternatives --install /usr/bin/python3 python3 /miniconda3/bin/python3.7 2 \
+RUN update-alternatives --install /usr/bin/python3 python3 /miniconda3/bin/python3.12 2 \
   && python --version \
   && python3 --version \
   && rm /usr/bin/lsb_release
@@ -113,17 +111,16 @@ RUN conda install --quiet --yes -c bioconda \
 ## scvelo                      scVelo
 ## jupyter                     jupyter
 ## radian                      r terminal
-## metacells                   v2 of the metacell algorithm
 ##----------------------------------------------------------------------------##
 RUN python3 -m pip install \
   click \
   Cython \
   dca \
-  fa2 \
+  # fa2 \
   # "gast==0.2.2" \
   h5py \
+  igraph \
   leidenalg \
-  louvain \
   numba \
   numpy \
   # "networkx==2.2" \
@@ -140,7 +137,6 @@ RUN python3 -m pip install \
   tensorflow \
   umap-learn \
   jupyter \
-  metacells \
   radian
 
 RUN python3 -m pip install \
@@ -189,5 +185,5 @@ RUN Rscript /Rscripts/packages_compbio.R
 COPY packages_single_cell.R /Rscripts/
 RUN Rscript /Rscripts/packages_single_cell.R
 
-#COPY packages_single_cell_experimental.R /Rscripts/
-#RUN Rscript /Rscripts/packages_single_cell_experimental.R
+COPY packages_single_cell_experimental.R /Rscripts/
+RUN Rscript /Rscripts/packages_single_cell_experimental.R
