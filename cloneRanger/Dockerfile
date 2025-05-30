@@ -21,18 +21,9 @@ RUN rm -rf /var/lib/apt/lists/* \
     libgsl-dev \
     pkg-config
 
-#--------------------------  Install UMAP
+#--------------------------  Install UMAP, pandas and biopython
 ENV PATH="/opt/venv/bin:$PATH"
-RUN python3 -m venv /opt/venv && pip3 install numpy umap-learn
-
-#-------------------------- install conda, pandas and biopython
-RUN cd / \
-    && wget --quiet https://github.com/conda-forge/miniforge/releases/download/24.11.2-1/Miniforge3-24.11.2-1-Linux-x86_64.sh \
-    && bash Miniforge3-24.11.2-1-Linux-x86_64.sh -b -p /miniconda3
-ENV PATH "$PATH:/miniconda3/bin"
-
-RUN conda install --quiet --yes -c conda-forge pandas \
-    && conda install --quiet --yes -c bioconda biopython
+RUN python3 -m venv /opt/venv && pip3 install numpy umap-learn biopython pandas
 
 #--------------------------  Install bioconductor dependencies
 RUN R --no-echo --no-restore --no-save -e "install.packages('BiocManager')" \
