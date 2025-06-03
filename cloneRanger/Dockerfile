@@ -11,6 +11,10 @@ RUN rm -rf /var/lib/apt/lists/* \
     libpng-dev \
     libboost-all-dev \
     libxml2-dev \
+    libudunits2-dev \
+    libhdf5-dev \
+    libglpk-dev \
+    libbz2-dev \
     openjdk-8-jdk \
     python3-dev \
     python3-pip \
