@@ -15,6 +15,8 @@ RUN rm -rf /var/lib/apt/lists/* \
     libhdf5-dev \
     libglpk-dev \
     libbz2-dev \
+    liblzma-dev \
+    zlib1g-dev \
     openjdk-8-jdk \
     python3-dev \
     python3-pip \
@@ -38,5 +40,6 @@ RUN R --no-echo --no-restore --no-save -e "install.packages(c('tidyverse', 'glue
     && R --no-echo --no-restore --no-save -e "install.packages('Matrix')" \
     && R --no-echo --no-restore --no-save -e "install.packages('remotes')" \
     && R --no-echo --no-restore --no-save -e "install.packages('Seurat')" \
-    && R --no-echo --no-restore --no-save -e "install.packages('Signac')" \
+    && R --no-echo --no-restore --no-save -e "setRepositories(ind=1:3);install.packages('Signac')" \
     && R --no-echo --no-restore --no-save -e "remotes::install_github('mojaveazure/seurat-disk')"
+
