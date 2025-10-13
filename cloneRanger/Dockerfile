@@ -41,5 +41,7 @@ RUN R --no-echo --no-restore --no-save -e "install.packages(c('tidyverse', 'glue
     && R --no-echo --no-restore --no-save -e "install.packages('remotes')" \
     && R --no-echo --no-restore --no-save -e "install.packages('Seurat')" \
     && R --no-echo --no-restore --no-save -e "setRepositories(ind=1:3);install.packages('Signac')" \
-    && R --no-echo --no-restore --no-save -e "remotes::install_github('mojaveazure/seurat-disk')"
+    && R --no-echo --no-restore --no-save -e "remotes::install_github('mojaveazure/seurat-disk')" \
+    && R --no-echo --no-restore --no-save -e "remotes::install_github('immunogenomics/presto')"
+
 
