@@ -1,4 +1,4 @@
-FROM centos:7
+FROM rockylinux:9
 
 LABEL maintainer="Daniel Fernandez Perez (daniel.fernandez.perez@gmail.com)"
 
@@ -6,8 +6,9 @@ ARG CELLRANGER_VERSION
 ARG DOWNLOAD_URL
 ENV PATH /opt/cellranger-atac-${CELLRANGER_VERSION}:$PATH
 
-RUN yum group install -y "Development Tools" \
-    && yum install -y which
+RUN dnf group install -y "Development Tools" \
+    && dnf install -y which \
+    && dnf clean all
 
 # cell ranger binaries
 RUN curl -o cellranger-atac-${CELLRANGER_VERSION}.tar.gz ${DOWNLOAD_URL} \
